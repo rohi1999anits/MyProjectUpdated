@@ -1,0 +1,16 @@
+.section-4 p{
+  font-family: 'Dancing Script', cursive;
+  /* background-color: black; */
+}
+i{
+  font-size: large;
+}
+i:hover{
+  transform: scale(1.5);
+  color:white;
+}
+
+.darkdiv{
+  color: azure;
+  background-color: #1e2232;
+}

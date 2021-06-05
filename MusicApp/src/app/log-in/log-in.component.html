@@ -1,0 +1,33 @@
+<app-header></app-header> 
+<section class="login-block heroOverlay">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <form class="md-float-material form-material" action="#" method="POST">
+                <div class="auth-box card">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="text-center heading">Login here</h3>
+                            </div>
+                        </div>
+                        <div class="form-group form-primary"> <input type="text" class="form-control" name="email" value="" placeholder="Email" id="email"> </div>
+                        <div class="form-group form-primary"> <input type="password" class="form-control" name="password" placeholder="Password" value="" id="password"> </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                              <input class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" (click)="loginSubmit()" type="button" value="Login Now">
+                              {{msg}}
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                        </div> <br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+</section>
+<app-footer></app-footer>
+

@@ -1,0 +1,39 @@
+<div class="results">
+    <div class="album">
+
+     
+        <!-- <h1>Welcome to MusixApp</h1> -->
+        <!-- <h3>Enjoy the recommended songs</h3> -->
+        <mat-grid-list cols="4" rowHeight="400px">
+          <mat-grid-tile *ngFor="let album of hindilist  | paginate: {itemsPerPage: 12, currentPage:p}">
+            <mat-card class="album-card">
+              <mat-card-content><!--same music symbol image for everything-->
+                <img 
+                  mat-card-image 
+                  class="album-image" 
+                  src="../assets/images/gif4.gif" 
+                  alt="Photo not available"
+                  
+                />
+                <a href="{{album.url}}"><i class="fa fa-play-circle" style="font-size:48px;color:blueviolet"></i></a>
+                
+                <!-- <div *ngFor="let audio of audios, let i = index">
+                  <div>
+                     pass the audio you want to play in the click event's handler 
+                     <button (click)="GetStation(audio)">{{audio.station}}</button>
+                  </div>
+                </div> -->
+
+               <!-- <button style="font-size:24px"> <a href="{{album.url}}"> <i class="fa fa-play"></i></a></button> -->
+              </mat-card-content>
+              <mat-card-header>
+                <mat-card-title>{{album.albumName}}</mat-card-title>
+                <mat-card-subtitle>{{album.artist}}</mat-card-subtitle>
+              </mat-card-header>
+              
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <pagination-controls (pageChange)="p=$event"></pagination-controls><!--Component Interaction child to parent-->
+    </div>

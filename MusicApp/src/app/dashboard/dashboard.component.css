@@ -1,0 +1,19 @@
+.bg-image{
+  
+  
+  /* background-image: url("https://cdn11.bigcommerce.com/s-gy4oo/images/stencil/500x659/products/4550/7638/37__85764.1539620632.png?c=2"); */
+}
+.container{
+  position:relative;
+  top:10%;
+}
+.txt2{
+  font-family: 'Dancing script';
+  font-size:18px;
+}
+.txt3{
+  font-family: 'cursive';
+  font-style: italic;
+  font-size:18px;
+}
+

@@ -1,0 +1,65 @@
+<nav class="navbar fixed-top navbar-icon-top navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand   music-app" [routerLink]="['/dashboard']">Harmony&#9834;</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon darkham" ></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['../dashboard']">
+          <i class="fa fa-home"></i>
+          Home
+          <span class="sr-only">(current)</span>
+          </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" [routerLink]="['../contactus']">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-danger"></span>
+          </i>
+          Contact Us
+        </a>
+      </li> -->
+
+   
+
+      <li class="nav-item">
+     
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-music" aria-hidden="true">
+            <span class="badge badge-primary">5</span>
+          </i>
+         Country Specials
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        
+          <a class="dropdown-item" [routerLink]="['../india']">India</a>
+          
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['../china']">China</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['../brazil']">Brazil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['../spain']">Spain</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['../germany']">German</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+         
+          <li><a [routerLink]="['../recommendation']" class="text"><img src="../../assets/smallrec.png"> Recommendations</a></li>
+          <li><a [routerLink]="['../favourite']" class="text"><img src="../../assets/smallfav.png"> Favourites</a></li>
+          <!-- <li><a [routerLink]="['../search']"><span class="glyphicon glyphicon-log-in"></span> Search</a></li> -->
+          <li><a [routerLink]="['../profile']"><img  [src]="image" class="shape" matTooltip="Edit Profile" ></a></li>
+          <li><a [routerLink]="['../logout']" class="text"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    
+  </div>
+</nav>
+
+
+
+

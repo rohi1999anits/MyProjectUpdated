@@ -1,0 +1,43 @@
+<app-header></app-header>  
+<div class="container " *ngIf="!isLoggedIn$">
+  <div class="jumbotron text-center mdb-color lighten-2 white-text z-depth-2">
+    <p class="txt2"> <i class="fa fa-poll"></i>Trending songs</p> 
+   <div class="d-flex justify-content-center">
+    <p class="card-text my-2 txt3" style="max-width: 47rem" >Login to the app to search for your favorites songs and explore more!..</p>
+  </div>
+</div>
+</div>
+  <div class="results">
+      <div class="album">
+  
+        <!-- <app-search></app-search> -->
+          <!-- <h1>Welcome to MusixApp</h1> -->
+          <mat-grid-list cols="4" rowHeight="400px">
+            <mat-grid-tile *ngFor="let album of hindilist  | paginate: {itemsPerPage: 12, currentPage:p}">
+              <mat-card class="album-card">
+                
+                <mat-card-content>
+                  <img 
+                    mat-card-image 
+                    class="album-image" 
+                    src="../assets/images/GIFhOME.gif" 
+                    alt="Photo not available"
+                    
+                  />
+                  <a *ngIf ="!isLoggedIn$" href="{{album.url}}"><i class="fa fa-play-circle" style="font-size:48px;color:blueviolet"></i></a>
+                  
+                 <!-- <button style="font-size:24px"> <a href="{{album.url}}"> <i class="fa fa-play"></i></a></button> -->
+                </mat-card-content>
+                <mat-card-header>
+                  <mat-card-title>{{album.albumName}}</mat-card-title>
+                  <mat-card-subtitle>{{album.artist}}</mat-card-subtitle>
+                </mat-card-header>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+
+
+      <app-footer></app-footer>

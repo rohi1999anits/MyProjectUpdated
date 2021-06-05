@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* background-image: url(/assets/images/background1.jpg); */
+  /* background-repeat: no-repeat; */
+  /* background: #16222A;
+  background: -webkit-linear-gradient(59deg, rgb(78, 134, 161), rgb(30, 58, 77));
+  background: linear-gradient(59deg, #3A6073, #16222A); */
+  /* background-color: #7ee7c247 !important; */
+  /* background-color: backgr !important; */
+  /* background-image: url('./assets/cool-background.png'); */
+}
+
+/* body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url(/assets/images/background1.jpg);
+  background-repeat: no-repeat;
+  background-color: darkslategrey;
+} */
+
+
+/*  */
+ 
+html, body {
+  
+  margin
+  : 0;
+    
+  padding
+  : 0;
+  }
+  .background {
+
+    /* background: black; */
+    
+  position
+  :
+   absolute
+  ;
+    
+  display
+  :
+   block
+  ;
+  /* background-color: black; */
+    
+  top
+  : 0;
+    
+  left
+  : 0;
+    
+  z-index
+  : -1;
+  }
+

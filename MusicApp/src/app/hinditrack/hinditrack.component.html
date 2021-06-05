@@ -1,0 +1,35 @@
+<app-header></app-header> 
+  <div class="results">
+      <div class="album">
+  
+       
+          <h1>Hindi Playlist</h1>
+          <!-- <h3>Enjoy the recommended songs</h3> -->
+          <mat-grid-list cols="4" rowHeight="400px">
+            <mat-grid-tile *ngFor="let album of hindilist">
+              <mat-card class="album-card">
+                
+                <mat-card-content>
+                  <img 
+                    mat-card-image 
+                    class="album-image" 
+                    src="../assets/images/apple.jpg" 
+                    alt="Photo not available"
+                    
+                  />
+                  <a href="{{album.url}}"><i class="fa fa-play-circle" style="font-size:48px;color:blueviolet"></i></a>
+                  
+                 <!-- <button style="font-size:24px"> <a href="{{album.url}}"> <i class="fa fa-play"></i></a></button> -->
+                </mat-card-content>
+                <mat-card-header>
+                  <mat-card-title>{{album.name}}</mat-card-title>
+                  <mat-card-subtitle>{{album.artistName}}</mat-card-subtitle>
+                </mat-card-header>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </div>
+
+
+      <app-footer></app-footer>

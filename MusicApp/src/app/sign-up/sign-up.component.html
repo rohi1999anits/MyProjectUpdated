@@ -1,0 +1,80 @@
+ <app-header></app-header> 
+ <section class="login-block">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="md-float-material form-material" action="#" method="POST">
+                    <div class="auth-box card">
+                        <div class="card-block">
+                                <div class="col-md-12">
+                                    <h3 class="text-center heading">Register here</h3>
+                                </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group form-primary">
+                <label></label>
+                <input type="text" formControlName="firstName" autocomplete="off" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="First Name"/>
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group form-primary">
+                <label></label>
+                <input type="text" formControlName="lastName" class="form-control" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Last Name"/>
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+            </div>
+        <div class="form-group form-primary">
+            <label></label>
+            <input type="text" formControlName="email" class="form-control" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+        </div>
+        <div class="form-group form-primary">
+            <div class="form-group form-primary">
+                <label></label>
+                <input type="password" formControlName="password" class="form-control" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="form-group form-primary">
+                <label></label>
+                <input type="password" formControlName="confirmPassword" class="form-control" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" placeholder="Confirm Password"/>
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
+            </div>
+            <div class="upload-field">
+                <label for="picture">Picture</label>
+                <input type="file" formControlName="picture" autocomplete="off" (change)="onchange($event)"[ngClass]="{ 'is-invalid': submitted && f.picture.errors }" />
+            </div><!--To access the event that is going to trigger(use $event) in .ts file i.e to capture that picture and provide it in profile section-->
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">Register</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+        </div>
+        <h3>{{msg}}</h3>
+        <div class="or-container">
+            <div class="line-separator"></div>
+            <div class="or-label">or</div>
+            <div class="line-separator"></div>
+        </div>
+        <div class="row">
+        </div> <br>
+        <p class="text-inverse text-center" >Already have an account? <a [routerLink]="['../login']" >Login</a></p>
+    </form>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+
+<app-footer></app-footer>

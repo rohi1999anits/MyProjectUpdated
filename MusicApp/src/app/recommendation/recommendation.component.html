@@ -1,0 +1,63 @@
+<app-dashboard1></app-dashboard1>
+<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1>Recommendations <span class="badge badge-secondary">for you</span></h1>
+
+<br><br><br><br>
+        <div class="bodyClass">
+          <ngb-carousel   >
+              <ng-template ngbSlide *ngFor="let each of  this.arrayCount;let i=index" id={{i}}>
+                  <img src={{each.image}} alt="image not available" class="w-100">
+                  <div class="carousel-caption">
+                    <h2>{{each.artistSongName}}</h2>
+                    <p>Followed By :{{each.recommendationCount}} <br>
+                      {{each.albumSingle}}, by {{each.artist_name}}
+
+                    </p>
+                  </div>
+              </ng-template>
+          </ngb-carousel>
+      </div>
+      <br>
+      <div class="container-table100">
+        <div class="wrap-table100">
+        <table class="table table-striped" style='color:whitesmoke;font-size:30px;' >
+              <thead style='background-color: black'>
+              <tr >
+                <th scope="col">Sr.No</th>
+                <th scope="col">Album Title</th>
+                <th scope="col">Song Name</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Hits</th>
+                <th scope="col">Play</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let each of  this.arrayCount; let i=index">
+                <th scope="row">{{ i + 1 }}</th>
+                {{each.albumSingle}}
+                <td>
+                  {{each.artistSongName}}
+                </td>
+                <td>{{each.artist_name}}</td>
+                <td>{{each.recommendationCount}}</td>
+                <td>
+                  <ul style="list-style-type:none;">
+                    <li>
+                        <!-- <a (click)="playSound(item.trackSingle)"> Play</a> -->
+                     <!-- <audio controls id="{{each.artistSongName}}">
+                          <source src="{{each.trackSingle}}" type="audio/mp3"  >
+                      </audio>-->
+                      <a href="{{each.url}}" class="fa fa-play-circle" style="font-size:48px;color:blueviolet"></a>
+        
+                    </li>
+ 
+                    <!-- <li><button mat-raised-button (click)="Onclick(item)">Comment</button></li> -->
+                  </ul>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+           </div>
+   </div>
+   <app-footer></app-footer>

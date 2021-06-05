@@ -1,0 +1,78 @@
+<nav class="navbar fixed-top navbar-icon-top navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand   music-app" href="#" [routerLink]="['/dashboard']">Harmony&#9834;</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" >
+          <i class="fa fa-home"></i>
+          Home 
+          <span class="sr-only">(current)</span>
+          </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" [routerLink]="['../contactus']">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-danger"></span>
+          </i>
+          Contact Us
+        </a>
+      </li> -->
+
+   
+
+     <!-- <li class="nav-item">
+     
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-music" aria-hidden="true">
+            <span class="badge badge-primary">2</span>
+          </i>
+         Playlist
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        
+          <a class="dropdown-item" [routerLink]="['../contrieswise']">Countries Wise</a>
+          
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/tracks']">Language Wise</a>
+        </div>
+      </li>-->
+    </ul>
+    <!-- <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-bell">
+            <span class="badge badge-info">11</span>
+          </i>
+          Test
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-globe">
+            <span class="badge badge-success">11</span>
+          </i>
+          Test
+        </a>
+      </li>-o
+
+    </ul> -->
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a [routerLink]="['/signup']" *ngIf ="!isLoggedIn$" class="text"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a [routerLink]="['/login']" *ngIf ="!isLoggedIn$" class="text"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li ><a [routerLink]="['/profile']" *ngIf="isLoggedIn$"><img  [src]="image" class="shape" matTooltip="Edit Profile" ><span class="glyphicon glyphicon-log-in"></span></a></li>
+      <li><a [routerLink]="['/logout']" *ngIf ="isLoggedIn$" class="text"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

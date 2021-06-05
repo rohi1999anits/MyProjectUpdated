@@ -1,0 +1,104 @@
+ <!-- <app-dashboard1></app-dashboard1>  -->
+ <!--This will be displayed when corresponding search item matches this results body is displayed-->
+<div class="results">
+    <div class="album" *ngIf="isalbum && !isvideo">
+
+      <h5 *ngIf="status === 'searching'">Searching for albums by {{ message }}...</h5>
+      <h5 *ngIf="status === 'none'">No Albums Found for {{ message }}...</h5>
+      <div *ngIf="status === 'complete'">
+        <h5>Click On Album to get Tracks</h5>
+        <mat-grid-list cols="4" rowHeight="400px">
+          <mat-grid-tile *ngFor="let album of albumlist | paginate: {itemsPerPage: 12, currentPage:p}">
+            <mat-card class="album-card">
+              
+              <mat-card-content>
+                <img 
+                  mat-card-image 
+                  class="album-image" 
+                  src="{{album.imgUrl}}" 
+                  alt="Photo not available"
+                  (click)="showtracks(album)"
+                />
+              </mat-card-content>
+              <mat-card-header (click)="showtracks(album)">
+                <mat-card-title>{{album.albumName}}</mat-card-title>
+                <mat-card-subtitle>{{album.artist}}</mat-card-subtitle>
+              </mat-card-header>
+            </mat-card><br>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>
+
+    <div class="Track" *ngIf="isTrack">
+        <mat-card class="tracklist-card">
+          <span (click)="goback()" class="close">Close</span>
+          <mat-card-header>
+            <img mat-card-avatar class="tracklist-image" src="{{ a.imgUrl }}" alt="Photo not available">
+            <mat-card-title>{{ a.albumName }}</mat-card-title>
+            <mat-card-subtitle>{{ a.artist }}</mat-card-subtitle>
+           
+              
+          </mat-card-header>
+          <mat-card-content>
+            <h4 *ngIf="status === 'searching'">Loading tracks...</h4>
+            <h4 *ngIf="status === 'none'">Sorry, no tracks...</h4>
+            <ol *ngIf="status === 'complete'">
+              <table >
+                <li  *ngFor="let track of tracklist">
+                  <tr>
+                  <div>
+                    <h3>
+                      <td style="width:200px" font-weight=700>
+                    {{ track.trackName }}
+                  </td>
+                  <td><!--For favorites-->
+                    <span (click)="favToggleFunction(tracklist.indexOf(track),track)" class={{cname}} id ={{tracklist.indexOf(track)}} style="font-size:23px;color:blueviolet"> </span>
+                </td>
+                <td>
+                  <!--for recommendations-->
+                <!-- <button mat-button color="primary" (click)="recommend(track)">Recommend</button> -->
+                <mat-slide-toggle *ngIf="!track.recommend"  (click)="recommend(tracklist.indexOf(track),track)"></mat-slide-toggle>
+                <mat-slide-toggle *ngIf="track.recommend" [ngModel]="true" (click)="unrecommend(tracklist.indexOf(track),track)"></mat-slide-toggle>
+
+              </td>
+              <td>
+                <a href="{{track.url}}"><i class="fa fa-play-circle" style="font-size:40px;color:blueviolet"></i></a>
+                <!-- <a [routerLink]="['/login']" *ngIf ="!isLoggedIn$"><i class="fa fa-play-circle" style="font-size:40px;color:blueviolet"></i></a> -->
+              </td>
+              </h3>
+              </div>
+            </tr>
+          </li>
+          </table>
+            </ol>
+          </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="container" *ngIf="isalbum && isvideo">
+
+  
+
+
+      <br>
+      <div class="row">
+       <div *ngFor="let video of albumlist" class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow vh-50">
+            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+              <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="..."></a>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">
+                <a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}
+                </a></h5>
+              <div class="card-text text-black-50">{{video.snippet.description.slice(0, 100)}}</div>
+             </div>
+          </div>
+        </div>
+    
+      </div>
+      <!-- /.row -->
+    
+    </div>
+</div>
+

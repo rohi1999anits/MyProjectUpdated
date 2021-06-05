@@ -1,0 +1,26 @@
+.section-4 p{
+    font-family: 'Dancing Script', cursive;
+  }
+  a:hover{
+    font-size: 16px;
+  }
+  a{
+    color:wheat;
+  }
+  i{
+    font-size: large;
+  }
+  i:hover{
+    transform: scale(1.5);
+    color:blue;
+  }
+  hr{
+   border-top: 1px rgb(219, 231, 209) solid;;
+  }
+  h4{
+    color:rgb(224, 220, 228);
+  }
+
+  .darkfoot{
+    background-color: #1e2232;
+  }

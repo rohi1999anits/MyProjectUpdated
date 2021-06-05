@@ -1,0 +1,65 @@
+<!-- <app-dashboard1></app-dashboard1>
+
+    <div class="container">
+      <div class="content">
+          <div class="logo">
+            <mat-icon>music_note</mat-icon>
+            <div>Favourites</div>
+        </div>
+    
+        <mat-list color="primary" >
+          <h2 mat-subheader>Enjoy the songs from your favourite list</h2>
+          <mat-list-item *ngFor="let file of favList; let i = index">
+            <mat-icon color="primary" mat-list-icon>music_note</mat-icon>
+            <h4 mat-line>{{ file.songname }}</h4>
+            <h5 mat-line>by {{ file.artist }}</h5>
+            <button  
+                mat-button color="primary" (click)="delete(file)">Unfavourite</button>
+           
+            <button style="font-size:24px"> <a href="{{file.url}}"> <i class="fa fa-play"></i></a></button>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>   
+      </div>
+    </div> -->
+  
+
+    <app-dashboard1></app-dashboard1> 
+    <div class="results">
+        <div class="album">
+    
+         
+            <h1>Favourites Songs and Playlists</h1>
+            <!-- <h3>Enjoy the recommended songs</h3> -->
+            <mat-grid-list cols="4" rowHeight="400px">
+              <mat-grid-tile *ngFor="let album of favList | paginate: {itemsPerPage: 12, currentPage:p}">
+                <mat-card class="album-card">
+                  
+                  <mat-card-content>
+                    <img 
+                      mat-card-image 
+                      class="album-image" 
+                      src="../assets/images/GIF8.gif" 
+                      alt="Photo not available"
+                      
+                    />
+                    <a href="{{album.url}}"><i class="fa fa-play-circle" style="font-size:40px;color:blueviolet"></i></a>
+                    <!-- <button type="button" class="btn btn-primary btn-lg" (click)="delete(album)">Unfavourite</button> -->
+                    <span (click)="delete(favList.indexOf(album),album)" class={{cname}} id ={{favList.indexOf(album)}} style="font-size:30px;color:blueviolet;margin-left: 20px;"> </span>
+                   <!-- <button style="font-size:24px"> <a href="{{album.url}}"> <i class="fa fa-play"></i></a></button> -->
+                   <!-- <li>{{item.trackSingle}}</li> -->
+                    <button mat-raised-button (click)="Onclick(album)" style="margin-top:7%;margin-left:0%;">Comment</button>
+                  </mat-card-content>
+                  <mat-card-header>
+                    <mat-card-title>{{album.songname}}</mat-card-title>
+                    <mat-card-subtitle>{{album.artist}}</mat-card-subtitle>
+                  </mat-card-header>
+                </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+
+
+        <app-footer></app-footer>

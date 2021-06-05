@@ -1,0 +1,81 @@
+version: '3'
+services:
+#   container for mysql
+  databasemysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3303:3303"
+    container_name: mysql-doc
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: dummypassword
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Password@123
+      MYSQL_DATABASE: SpringIBM
+
+#    container for mongo
+  databasemongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    container_name: mongo-con
+    network_mode: host
+    environment:
+      MONGO_DATABASE: hr
+
+
+
+#   container for user module
+  usermodule:
+      build:
+        dockerfile: Dockerfile
+        context:  ./UserService
+      container_name: userservice-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8002:8002"
+      depends_on:
+        - databasemysql
+        
+#   container for favourite module
+  favouritemodule:
+      build: 
+        dockerfile: Dockerfile
+        context:  ./FavouritesService
+      container_name: favouritemodule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8005:8005"
+      depends_on:
+        - databasemongo
+
+#   container for recommend module
+  recommendmodule:
+      build: 
+        dockerfile: Dockerfile
+        context:  ./RecommendationService
+      container_name: recommendmodule-docker
+      network_mode: host
+      restart: always
+      ports:
+       - "8004:8004"
+      depends_on:
+        - databasemongo
+
+
+
+# container for front end 
+  angular-frontend:
+    build:
+       dockerfile: Dockerfile
+       context:  ./MusicApp
+    container_name: angular-docker
+    network_mode: host
+    restart: always
+    ports:
+       - "8006:8006"
+    

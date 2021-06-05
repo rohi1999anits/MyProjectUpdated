@@ -1,0 +1,17 @@
+ <!-- <app-dashboard1></app-dashboard1>  -->
+<div class="search-page">
+  <div class="form-container">
+      <mat-form-field>
+          <mat-label class="label" for="criteria">Search by {{ type }}</mat-label>
+          <input id="input" [(ngModel)]="criteria" matInput autocomplete="off" (keyup.enter)="search()" >
+      </mat-form-field>
+      <button (click)="search()" style="width: 25%;background-color: #4099FF; align-self: center;" mat-raised-button color="dark">Search</button>
+  </div>
+  <mat-button-toggle-group name="searchType" [(ngModel)]="type">
+      <mat-button-toggle selected value="artist">Search by Artist</mat-button-toggle>
+      <mat-button-toggle value="album">Search by Album</mat-button-toggle>
+      <mat-button-toggle value="video">Search by Video</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<app-results *ngIf="searching" [message]="message" [searchtype]="type"></app-results>
+<!-- <app-footer></app-footer> -->
